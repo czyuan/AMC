@@ -1,4 +1,4 @@
-AMC (topic modeling with Automatically generated Must-links and Cannot-links)
+AMC (Chen and Liu, KDD 2014)
 ===
 
 AMC is an open-source Java package implementing the algorithm proposed in the paper (Chen and Liu, KDD 2014), created by [Zhiyuan (Brett) Chen](http://www.cs.uic.edu/~zchen/). For more details, please refer to [this paper](http://www.cs.uic.edu/~zchen/papers/KDD2014-Zhiyuan(Brett)Chen.pdf).
