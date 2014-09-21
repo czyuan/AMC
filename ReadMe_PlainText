@@ -1,8 +1,8 @@
-LTM (Lifelong Topic Model)
+AMC (Chen and Liu, KDD 2014)
 
-LTM is an open-source Java package implementing the algorithm proposed in the paper (Chen and Liu, ICML 2014), created by Zhiyuan (Brett) Chen. For more details, please refer to this paper.
+AMC is an open-source Java package implementing the algorithm proposed in the paper (Chen and Liu, KDD 2014), created by Zhiyuan (Brett) Chen. For more details, please refer to this paper.
 
-If you use this package, please cite the paper: Zhiyuan Chen and Bing Liu. Topic Modeling using Topics from Many Domains, Lifelong Learning and Big Data. In Proceedings of ICML 2014, pages 703-711.
+If you use this package, please cite the paper: Zhiyuan Chen and Bing Liu. Mining Topics in Documents: Standing on the Shoulders of Big Data. In Proceedings of KDD 2014, pages 1116-1125.
 
 If you have any question or bug report, please send it to Zhiyuan (Brett) Chen (czyuanacm@gmail.com).
 
@@ -15,7 +15,7 @@ Table of Contents
 
 1. Quick Start
 
-First, Clone the repo: git clone https://github.com/czyuan/LTM.git.
+First, Clone the repo: git clone https://github.com/czyuan/AMC.git.
 
 Then, 2 quick start options are available:
 
@@ -27,16 +27,13 @@ Use Maven
 
 a. Then, change the current working directory to Src.
 
-cd LTM/Src
-
+cd AMC/Src
 b. Build the package.
 
 mvn clean package
-
 c. Increase the Java heap memory for Maven.
 
 export MAVEN_OPTS=-Xmx1024m
-
 d. Run the program.
 
 mvn exec:java -Dexec.mainClass="launch.MainEntry"
@@ -45,7 +42,8 @@ mvn exec:java -Dexec.mainClass="launch.MainEntry"
 
 The commandline arguments are stored in the file "global/CmdOption.java". If no argument is provided, the program uses the default arguments. There are several arguments that are subject to change:
 
--i: the path of input domains directory.
+-ismall: the path of input domains directory containing small dataset (e.g., 100 reviews each domain).
+-ibig: the path of input domains directory containing big dataset (e.g., 1000 reviews each domain).
 -o: the path of output model directory.
 -nthreads: the number of threads used in the program. The program runs in parallel supporting multithreading.
 -nTopics: the number of topics used in Topic Model for each domain.
@@ -54,18 +52,20 @@ The commandline arguments are stored in the file "global/CmdOption.java". If no 
 
 Input
 
-The input directory should contain domain files. For each domain, there should be 2 files (can be opened by text editors):
+The input directory should have two datasets, one is small and the other is big. Each dataset contains domain files. For each domain, there should be 2 files (can be opened by text editors):
 
 domain.docs: each line (representing a document) contains a list of word ids.
 domain.vocab: mapping from word id (starting from 0) to word, separated by ":".
-
 Output
 
-The output directory contains topic model results for each learning iteration (different from Gibbs sampling iteration, see the paper for details). LearningIteration 0 is always LDA, i.e., without any knowledge. LearningIteration i with i > 0 is the LTM model. The knowledge used for LearningIteration i is extracted from LearningIteration i - 1, except LearningIteration 0 which is LDA.
+The output directory contains topic model results for LDA and AMC.
 
-Under each learning iteration folder and sub-folder "DomainModels", there are a list of domain folders where each domain folder contains topic model results for each domain. Under each domain folder, there are 6 files (can be opened by text editors):
+Under each model (LDA or AMC) directory, we have results for different datasets (small or big). Under the sub-folder "DomainModels", there are a list of domain folders where each domain folder contains topic model results for each domain. Under each domain folder, there are 9 files (can be opened by text editors):
 
 domain.docs: each line (representing a document) contains a list of word ids.
+domain.dtopicdist: document-topic distribution.
+domain.knowl_cannotlinks: record the cannnot-links used in the model (for AMC only).
+domain.knowl_mustlinks: record the must-links used in the model (for AMC only).
 domain.param: parameter settings.
 domain.tassign: topic assignment for each word in each document.
 domain.twdist: topic-word distribution
@@ -76,9 +76,8 @@ domain.vocab: mapping from word id (starting from 0) to word.
 
 The program and parameters are set to achieve the best performance in terms of topic coherence quality, instead of efficiency. There are several ways to improve efficiency (from the simplest to the hardest).
 
-a. Increase the number of threads in the program (specified by -nthreads in file "global/CmdOption.java"). The topic models are execuated in parallel in each domain using multithreading.
-b. Reduce the frequency of updating knowledge in Gibbs sampling (i.e., knowledgeUpdatelag in the file "model/ModelParameters.java"). The default setting is 1, meaning the knowledge is updated in each Gibbs sampling iteration. Setting this value to any number from 10 to 50 will greatly reduce the execution time while slightly deteriorating the topic quality.
-c. Use a better implementation for Apriori algorithm or use faster frequent itemset algorithm such as FP-growth.
+Increase the number of threads in the program (specified by -nthreads in file "global/CmdOption.java"). The topic models are execuated in parallel in each domain using multithreading.
+Use a better implementation for Apriori algorithm with muliple supports or use faster frequent itemset algorithm such as FP-growth.
 
 5. Contact Information
 
