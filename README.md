@@ -82,7 +82,7 @@ Under each model (LDA or AMC) directory, we have results for different datasets 
 The program and parameters are set to achieve the best performance in terms of topic coherence quality, instead of efficiency. There are several ways to improve efficiency (from the simplest to the hardest).
 
 1. Increase the number of threads in the program (specified by -nthreads in file "global/CmdOption.java"). The topic models are execuated in parallel in each domain using multithreading.
-2. Use a better implementation for Apriori algorithm or use faster frequent itemset algorithm such as FP-growth.
+2. Use a better implementation for Apriori algorithm with muliple supports or use faster frequent itemset algorithm such as FP-growth.
 
 <a name="contactinformation"/>
 ## Contact Information
