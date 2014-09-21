@@ -57,7 +57,7 @@ The commandline arguments are stored in the file "global/CmdOption.java". If no 
 <a name="inputandoutput"/>
 ## Input and Output
 ### Input
-The input directory should two datasets, one is small and the other is big. Each dataset contains domain files. For each domain, there should be 2 files (can be opened by text editors):
+The input directory should have two datasets, one is small and the other is big. Each dataset contains domain files. For each domain, there should be 2 files (can be opened by text editors):
 
 1. domain.docs: each line (representing a document) contains a list of word ids.
 2. domain.vocab: mapping from word id (starting from 0) to word, separated by ":".
