@@ -29,7 +29,7 @@ Then, 2 quick start options are available:
 
   a. Then, change the current working directory to Src.
   ```
-  cd LTM/Src
+  cd AMC/Src
   ```
   b. Build the package.
   ```
