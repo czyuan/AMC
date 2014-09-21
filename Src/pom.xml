@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   
   <modelVersion>4.0.0</modelVersion>
-  <groupId>LTM</groupId>
-  <artifactId>LTM</artifactId>
+  <groupId>AMC</groupId>
+  <artifactId>AMC</artifactId>
   <version>0.1</version>
-  <description>Topic Modeling using Topics from Many Domains, Lifelong Learning and Big Data</description>
-  <url>https://github.com/czyuan/LTM.git</url>
+  <description>Mining Topics in Documents: Standing on the Shoulders of Big Data</description>
+  <url>https://github.com/czyuan/AMC.git</url>
   
   <licenses>
     <license>
