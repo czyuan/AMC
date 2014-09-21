@@ -48,8 +48,8 @@ Then, 2 quick start options are available:
 ## Commandline Arguments
 The commandline arguments are stored in the file "global/CmdOption.java". If no argument is provided, the program uses the default arguments. There are several arguments that are subject to change:
 
-1. -ismall: the path of input domains directory containing small dataset (100 reviews each domain).
-2. -ibig: the path of input domains directory containing big dataset (1000 reviews each domain).
+1. -ismall: the path of input domains directory containing small dataset (e.g., 100 reviews each domain).
+2. -ibig: the path of input domains directory containing big dataset (e.g., 1000 reviews each domain).
 3. -o: the path of output model directory.
 4. -nthreads: the number of threads used in the program. The program runs in parallel supporting multithreading.
 5. -nTopics: the number of topics used in Topic Model for each domain.
