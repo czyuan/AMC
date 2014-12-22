@@ -54,7 +54,7 @@ Input
 
 The input directory should have two datasets, one is small and the other is big. Each dataset contains domain files. For each domain, there should be 2 files (can be opened by text editors):
 
-domain.docs: each line (representing a document) contains a list of word ids.
+domain.docs: each line (representing a document) contains a list of word ids. Here, a document is a sentence in a review after preprocessing.
 domain.vocab: mapping from word id (starting from 0) to word, separated by ":".
 Output
 
@@ -62,7 +62,7 @@ The output directory contains topic model results for LDA and AMC.
 
 Under each model (LDA or AMC) directory, we have results for different datasets (small or big). Under the sub-folder "DomainModels", there are a list of domain folders where each domain folder contains topic model results for each domain. Under each domain folder, there are 9 files (can be opened by text editors):
 
-domain.docs: each line (representing a document) contains a list of word ids. Here, a document is a sentence in a review after preprocessing.
+domain.docs: each line (representing a document) contains a list of word ids.
 domain.dtopicdist: document-topic distribution.
 domain.knowl_cannotlinks: record the cannnot-links used in the model (for AMC only).
 domain.knowl_mustlinks: record the must-links used in the model (for AMC only).
