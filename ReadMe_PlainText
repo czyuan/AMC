@@ -64,7 +64,7 @@ Under each model (LDA or AMC) directory, we have results for different datasets 
 
 domain.docs: each line (representing a document) contains a list of word ids.
 domain.dtopicdist: document-topic distribution.
-domain.knowl_cannotlinks: record the cannnot-links used in the model (for AMC only).
+domain.knowl_cannotlinks: record the cannot-links used in the model (for AMC only).
 domain.knowl_mustlinks: record the must-links used in the model (for AMC only).
 domain.param: parameter settings.
 domain.tassign: topic assignment for each word in each document.
